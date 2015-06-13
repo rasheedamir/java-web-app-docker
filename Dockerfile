@@ -45,8 +45,13 @@ RUN apt-get -y install gradle
 #---------- NodeJs
 
 # install node.js from PPA
-RUN add-apt-repository ppa:chris-lea/node.js
+#RUN add-apt-repository ppa:chris-lea/node.js
+
+# Note the new setup script name for Node.js v0.12
+RUN curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+
 RUN apt-get update
+
 RUN apt-get -y install nodejs
 
 #---------- npm
@@ -78,6 +83,9 @@ RUN npm install -g gulp
 
 RUN apt-get install -y -f ruby-compass
 RUN gem install compass
+
+#---------- Install JHipster
+RUN npm install -g generator-jhipster@2.16.0
 
 #---------- Configure Users
 
