@@ -28,6 +28,12 @@ t is very simple to create any number of perfectly isolated and self-contained j
 To create a new container, use the following command, modifying it to suit your requirements following this example:
 
 # Example
-`sudo docker run -v ~/jhipster:/jhipster -p 8080:8080 -p 9000:9000 -p 35729:35729 -p 4022:22 -t jhipster_img`
+`sudo docker run -d -v /home/rasheed/Projects/jhipster:/jhipster -p 8080:8080 -p 9000:9000 -p 35729:35729 -p 4022:22 -t jhipster_img`
 
 Now we will have a docker container named `jhipster_ins`, accessible from ports 8080, 9000 run using our image tagged `jhipster_img`, which we built previously.
+
+# SSH into container
+
+`ssh -p 4022 jhipster@localhost`
+pwd: `jhipster`
+
