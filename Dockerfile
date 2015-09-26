@@ -85,7 +85,7 @@ RUN apt-get install -y -f ruby-compass
 RUN gem install compass
 
 #---------- Install JHipster
-RUN npm install -g generator-jhipster@2.16.0
+RUN npm install -g generator-jhipster@2.21.1
 
 #---------- Configure Users
 
@@ -98,7 +98,7 @@ RUN cd /home && chown -R jhipster:jhipster /home/jhipster
 #---------- Expose
 
 # expose the working directory
-VOLUME ["/jhipster"]
+VOLUME ["/home/jhipster"]
 
 # expose the tomcat port, the grunt server port, the SSHD port, and run SSHD
 EXPOSE 8080
