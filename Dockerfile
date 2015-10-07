@@ -97,11 +97,14 @@ RUN cd /home && chown -R aurora:aurora /home/aurora
 # expose the working directory
 VOLUME ["/home/aurora"]
 
-# expose the tomcat port, the grunt server port, the SSHD port, and run SSHD
+# expose the tomcat port
 EXPOSE 8080
 
 # expose the grunt server port
 EXPOSE 9000
+
+# expose the gulp port
+EXPOSE 35729
 
 # expose the the SSHD port
 EXPOSE 22
