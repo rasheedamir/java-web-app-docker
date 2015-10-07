@@ -1,9 +1,9 @@
 ############################################################
-# Dockerfile to run jhipster based web apps
+# Dockerfile to run java & nodejs based web apps
 # Based on phusion Image
 ############################################################
 
-FROM phusion/baseimage:0.9.16
+FROM phusion/baseimage:0.9.17
 MAINTAINER Rasheed Amir <rasheed@aurorasolutions.io>
 
 # make sure the package repository is up to date
@@ -84,21 +84,18 @@ RUN npm install -g gulp
 RUN apt-get install -y -f ruby-compass
 RUN gem install compass
 
-#---------- Install JHipster
-RUN npm install -g generator-jhipster@2.21.1
-
 #---------- Configure Users
 
-# configure the "jhipster" and "root" users
-RUN echo 'root:jhipster' |chpasswd
-RUN groupadd jhipster && useradd jhipster -s /bin/bash -m -g jhipster -G jhipster && adduser jhipster sudo
-RUN echo 'jhipster:jhipster' |chpasswd
-RUN cd /home && chown -R jhipster:jhipster /home/jhipster
+# configure the "aurora" and "root" users
+RUN echo 'root:aurora' |chpasswd
+RUN groupadd aurora && useradd aurora -s /bin/bash -m -g aurora -G aurora && adduser aurora sudo
+RUN echo 'aurora:aurora' |chpasswd
+RUN cd /home && chown -R aurora:aurora /home/aurora
 
 #---------- Expose
 
 # expose the working directory
-VOLUME ["/home/jhipster"]
+VOLUME ["/home/aurora"]
 
 # expose the tomcat port, the grunt server port, the SSHD port, and run SSHD
 EXPOSE 8080
